@@ -48,7 +48,6 @@ class HsActiveStatus
         if(isset($this->auth) && isset($this->auth->user()->id)){
             $phpsession =$request->session()->getId();
             $sessionid =$this->auth->user()->sessionid;
-            log::info('session',[$phpsession,$sessionid]);
             if($phpsession != $sessionid){
                 Log::info('用户在其他位置登录',[$this->auth->user(),$request->header()]);
                 $request->session()->flush();

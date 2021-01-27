@@ -12,10 +12,11 @@
 */
 use Illuminate\Support\Facades\Route;
 
-//用户首页
-Route::get('/',                     'App\Http\Controllers\Home\HomeController@index'); //首页地址
+
 //个人中心
 Route::group(['namespace' => 'App\Http\Controllers\Home','middleware' => ['auth']], function () {
+    //用户首页
+    Route::get('/',                     'HomeController@index'); //首页地址
     /**
      * @covers App\Http\Controllers\Home
      */
@@ -243,8 +244,8 @@ Route::group(['prefix' => 'budget','namespace' => 'App\Http\Controllers\Budget',
 
 
 });
-//预算管理类的控制组 不需要登录
-Route::group(['prefix' => 'budget','namespace' => 'App\Http\Controllers\Budget'], function () {
+//预算管理类的控制组 需要登录
+Route::group(['prefix' => 'budget','namespace' => 'App\Http\Controllers\Budget','middleware' => ['auth','active_status']], function () {
     Route::get('/getEnginMaterialList/{id}',        'BudgetController@getEnginMaterialList');   //获取工程下面的材料信息列表
     Route::get('/getMaterialBrandList/{id}',        'BudgetController@getMaterialBrandList');   //获取工程下面的材料信息和品牌列表
 
