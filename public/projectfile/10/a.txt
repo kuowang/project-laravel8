@@ -1,0 +1,24 @@
+redis
+	图片路径修改 传教士的个人中心背景图
+		heimarket_partner_image_url    更改为：       androidupload/20191213/LzV3cXVBK3BzaklEZ09SdnhXL2pUZz09.jpg
+		
+		
+ENV
+	  		
+		
+    INSERT INTO `heishi`.`sp_hs_page_modules` (`id`, `name`, `type`, `version`, `class_name`) VALUES ('40', '2020首页-banner', '40', '4', 'HomepageAppBanner');
+    INSERT INTO `heishi`.`sp_hs_page_modules` (`id`, `name`, `type`, `version`, `class_name`) VALUES ('41', '2020首页-主题列表', '41', '4', 'HomepageAppThemeList');
+    INSERT INTO `heishi`.`sp_hs_page_modules` (`id`, `name`, `type`, `version`, `class_name`) VALUES ('42', '2020首页-卖家推荐', '42', '4', 'HomepageAppSellerRecommend');
+    INSERT INTO `heishi`.`sp_hs_page_modules` (`id`, `name`, `type`, `version`, `class_name`) VALUES ('43', '2020首页-栏目列表', '43', '4', 'HomepageAppSegmentGoodsList');
+    INSERT INTO `heishi`.`sp_hs_page_modules` (`id`, `name`, `type`, `version`, `class_name`) VALUES ('44', '2020首页-专题精选', '44', '4', 'HomepageAppFeatureList');
+    INSERT INTO `heishi`.`sp_hs_page_modules` (`id`, `name`, `type`, `version`, `class_name`) VALUES ('45', '2020首页-新品列表', '45', '4', 'HomepageAppNewGoodsList');
+    INSERT INTO `heishi`.`sp_hs_page_modules` (`id`, `name`, `type`, `version`, `class_name`) VALUES ('46', '2020首页-抽奖模块', '46', '4', 'HomepageAppLottery');
+
+    INSERT INTO `heishi`.`sp_hs_page_configs` ( `channel_id`, `module_id`, `title`, `title_type`, `module_type`, `query_type`, `order`, `display`, `desc`, `version`, `son_title`) VALUES ('7', '7', '广告位', '1', '7', '7', '1', '1', '', '28', '广告位');
+    INSERT INTO `heishi`.`sp_hs_page_configs` ( `channel_id`, `module_id`, `title`, `title_type`, `module_type`, `query_type`, `order`, `display`, `desc`, `version`, `son_title`) VALUES ('7', '40', '2020首页-banner', '40', '40', '40', '1', '1', '2020首页-banner', '60', '2020首页-banner');
+    INSERT INTO `heishi`.`sp_hs_page_configs` ( `channel_id`, `module_id`, `title`, `title_type`, `module_type`, `query_type`, `order`, `display`, `desc`, `version`, `son_title`) VALUES ('7', '41', '2020首页-主题列表', '41', '41', '41', '1', '1', '2020首页-主题列表', '30', '2020首页-主题列表');
+    INSERT INTO `heishi`.`sp_hs_page_configs` ( `channel_id`, `module_id`, `title`, `title_type`, `module_type`, `query_type`, `order`, `display`, `desc`, `version`, `son_title`) VALUES ('7', '42', '2020首页-卖家推荐', '42', '42', '42', '1', '1', '2020首页-卖家推荐', '30', '2020首页-卖家推荐');
+    INSERT INTO `heishi`.`sp_hs_page_configs` ( `channel_id`, `module_id`, `title`, `title_type`, `module_type`, `query_type`, `order`, `display`, `desc`, `version`, `son_title`) VALUES ('7', '43', '2020首页-栏目列表', '43', '43', '43', '1', '1', '2020首页-栏目列表', '30', '2020首页-栏目列表');
+    INSERT INTO `heishi`.`sp_hs_page_configs` ( `channel_id`, `module_id`, `title`, `title_type`, `module_type`, `query_type`, `order`, `display`, `desc`, `version`, `son_title`) VALUES ('7', '44', '2020首页-专题精选', '44', '44', '44', '1', '1', '2020首页-专题精选', '30', '2020首页-专题精选');
+    INSERT INTO `heishi`.`sp_hs_page_configs` ( `channel_id`, `module_id`, `title`, `title_type`, `module_type`, `query_type`, `order`, `display`, `desc`, `version`, `son_title`) VALUES ('7', '45', '2020首页-新品列表', '45', '45', '45', '1', '1', '2020首页-新品列表', '30', '2020首页-新品列表');
+    INSERT INTO `heishi`.`sp_hs_page_configs` ( `channel_id`, `module_id`, `title`, `title_type`, `module_type`, `query_type`, `order`, `display`, `desc`, `version`, `son_title`) VALUES ('7', '46', '2020首页-抽奖模块', '46', '46', '46', '1', '1', '2020首页-抽奖模块', '30', '2020首页-抽奖模块');
