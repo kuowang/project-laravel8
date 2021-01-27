@@ -51,7 +51,9 @@ class HsActiveStatus
             log::info('session',[$phpsession,$sessionid]);
             if($phpsession != $sessionid){
                 Log::info('用户在其他位置登录',[$this->auth->user(),$request->header()]);
-                return redirect('/logout?message=您在其他位置已经登录，请重新登录');
+                $request->session()->flush();
+                session(['message' => '您在其他位置已经登录，请重新登录']);
+                return redirect('/login');
             }
         }
         return $next($request);

@@ -14,13 +14,19 @@ use Illuminate\Support\Facades\Route;
 
 //用户首页
 Route::get('/',                     'App\Http\Controllers\Home\HomeController@index'); //首页地址
+//个人中心
+Route::group(['namespace' => 'App\Http\Controllers\Home','middleware' => ['auth']], function () {
+    /**
+     * @covers App\Http\Controllers\Home
+     */
+    Route::get('/home',                         'HomeController@index'); //个人首页
+});
 
 //个人中心
 Route::group(['namespace' => 'App\Http\Controllers\Home','middleware' => ['auth','active_status']], function () {
     /**
      * @covers App\Http\Controllers\Home
      */
-    Route::get('/home',                         'HomeController@index'); //个人首页
     Route::get('/editHomeUserInfo',             'HomeController@editHomeUserInfo');           //编辑用户个人信息
     Route::post('/postHomeUserInfo',             'HomeController@postHomeUserInfo');           //保存到用户个人信息
     Route::post('/uploadUserImage',             'HomeController@uploadUserImage');           //保存用户头像

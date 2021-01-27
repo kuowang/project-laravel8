@@ -49,6 +49,9 @@
     <script src="/layui/layui.js"></script>
 
 <script type="text/javascript">
+    <?php
+    $message =session('message');
+    ?>
     @isset($message)
     @if($message != '')
       $().ready(function () {

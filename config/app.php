@@ -12,8 +12,13 @@ return [
     | any other location as required by the application or its packages.
     |
     */
+    //'name' => '筑的宝',
+    'engin_name'=>'装配式轻钢房屋项目运营管理系统',
+    'project_logo'=>'/img/logo.png',
+    'project_logo_foot_info'=>'北京优筑美邦建筑科技有限公司',
+    'project_logo_foot_telphone'=>'电话：4008-115-021',
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', '筑的宝'),
 
     /*
     |--------------------------------------------------------------------------
