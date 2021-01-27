@@ -35,7 +35,7 @@ class Kernel extends HttpKernel
             \Illuminate\Session\Middleware\StartSession::class,
             \Laravel\Jetstream\Http\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-           // \App\Http\Middleware\VerifyCsrfToken::class,
+           // \App\Http\Middleware\VerifyCsrfToken::class,   //验证 CSRF 令牌 关闭 否则ajax 无法调用 后期需要开启 然后添加指定方法屏蔽csrf令牌
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
@@ -62,7 +62,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'active_status' => 'App\Http\Middleware\HsActiveStatus',
+        'active_status' => \App\Http\Middleware\HsActiveStatus::class,
 
     ];
 }
