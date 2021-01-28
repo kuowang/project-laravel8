@@ -33,15 +33,7 @@ class WebController extends Controller
             View::share('username',Auth::user()->name);
         }
 
-        if($user ){
-            if( $user->status ==0 ){
-                throw new \Exception('待审核用户，不能访问 <a href="/logout" style="color:#0000FF">(点击退出)</a>');
-            }elseif( $user->status == -1){
-                throw new \Exception('用户申请被禁止，不能访问 <a href="/logout"  style="color:#0000FF">(点击退出)</a>');
-            }elseif( $user->status == -2){
-                throw new \Exception('用户被禁止，不能访问 <a href="/logout"  style="color:#0000FF">(点击退出)</a>');
-            }
-        }
+
         return  $user;
     }
     protected function getAuthLevel($uid){
