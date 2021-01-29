@@ -174,7 +174,10 @@
                                     <tr class="pro-title">
                                         <td colspan="4">{{$v->system_name}}({{$v->engin_name}})</td>
                                     </tr>
-                                    @php( $system_code = $v->system_code)
+                                    @php
+                                     $system_code = $v->system_code)
+                                    @endphp
+
                                 @endif
                             <tr  class="system_code_{{$v->system_code}}">
                                 <td>{{$k+1}}</td>

@@ -206,7 +206,9 @@
                                     <tr class="pro-title gradeX warning odd">
                                         <td colspan="11">{{$v->system_name}}({{$v->engin_name}})</td>
                                     </tr>
-                                    @php( $system_code = $v->system_code)
+                                    @php
+                                        $system_code = $v->system_code)
+                                    @endphp
                                 @endif
                             <tr class="sub_arch_{{$v->sub_arch_id}} gradeA success odd">
                                 <td  colspan="10"> &nbsp;&nbsp;&nbsp;<span class="btn btn-primary">{{$v->sub_system_name}}</span> <span style="color:#1d52f6">工况：{{$v->work_code}}</span> 编码：{{$v->sub_system_code}}</td>

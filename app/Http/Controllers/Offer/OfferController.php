@@ -662,7 +662,7 @@ class OfferController extends WebController
             $data['room_area']      =json_decode($data['param']->room_area,true);
         }
 
-        $pdf = PDF::loadView('offer.offerDownload', $data);
+        $pdf = PDF::loadView('offer.offerDownload', $data,[],'UTF-8');
         //A4纸横向
         return $pdf->setPaper('a4', 'landscape')->stream($offer->offer_order_number.'.pdf');
 
