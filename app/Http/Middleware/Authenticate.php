@@ -5,12 +5,17 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Support\Facades\DB;
-use Log;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
 class Authenticate extends Middleware
 {
-
+    /**
+     * 用户登录权限控制
+     * @param \Illuminate\Http\Request $request
+     * @param Closure $next
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|mixed
+     */
     public function handle($request, Closure $next) {
 
         if (isset($_SERVER['HTTP_CLIENT_IP'])) {
@@ -53,6 +58,10 @@ class Authenticate extends Middleware
                 session(['message' => '用户被禁止，不能访问']);
                 return redirect('/login');
             }
+        }else{
+            session()->flush();
+            session(['message' => '请登录后再访问']);
+            return redirect('/login');
         }
 
         return $next($request);
