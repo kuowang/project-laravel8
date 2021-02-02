@@ -175,7 +175,7 @@
                                         <td colspan="4">{{$v->system_name}}({{$v->engin_name}})</td>
                                     </tr>
                                     @php
-                                     $system_code = $v->system_code)
+                                     $system_code = $v->system_code
                                     @endphp
 
                                 @endif

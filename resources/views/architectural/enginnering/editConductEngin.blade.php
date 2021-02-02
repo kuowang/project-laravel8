@@ -177,7 +177,9 @@
                                         <td > <span class="btn btn-success" onclick="showcontent('{{$v->system_code}}')" id="show_{{$v->system_code}}">显示</span>
                                         </td>
                                     </tr>
-                                    @php( $system_code = $v->system_code)
+                                    @php
+                                        $system_code = $v->system_code
+                                    @endphp
                                 @endif
                             <tr style="display: none" class="system_code_{{$v->system_code}}">
                                 <td>
