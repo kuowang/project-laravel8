@@ -126,7 +126,7 @@
                 <td colspan="10">{{$v->system_name}}({{$v->engin_name}})</td>
             </tr>
             @php
-                $system_code = $v->system_code)
+                $system_code = $v->system_code
             @endphp
         @endif
         <tr class="sub_arch_{{$v->sub_arch_id}} gradeA success odd">
