@@ -705,6 +705,43 @@ class BudgetController extends WebController
     //预算单导出
     protected function budgetDownload($id,$data,$project,$engineering)
     {
+        $pdf = new \TCPDF('L');
+// 设置文档信息
+        $pdf->SetCreator('懒人开发网');
+        $pdf->SetAuthor('懒人开发网');
+        $pdf->SetTitle('TCPDF示例');
+        $pdf->SetSubject('TCPDF示例');
+        $pdf->SetKeywords('TCPDF, PDF, PHP');
+
+// 设置页眉和页脚信息
+        $pdf->SetHeaderData('tcpdf_logo.jpg', 30, 'LanRenKaiFA.com', '学会偷懒，并懒出效率！', [0, 64, 255], [0, 64, 128]);
+        $pdf->setFooterData([0, 64, 0], [0, 64, 128]);
+
+// 设置页眉和页脚字体
+        $pdf->setHeaderFont(['stsongstdlight', '', '10']);
+        $pdf->setFooterFont(['helvetica', '', '8']);
+
+// 设置默认等宽字体
+        $pdf->SetDefaultMonospacedFont('courier');
+
+// 设置间距
+        $pdf->SetMargins(15, 15, 15);//页面间隔
+        $pdf->SetHeaderMargin(5);//页眉top间隔
+        $pdf->SetFooterMargin(10);//页脚bottom间隔
+
+// 设置分页
+//$pdf->SetAutoPageBreak(true, 25);
+
+// set default font subsetting mode
+        $pdf->setFontSubsetting(true);
+
+//设置字体 stsongstdlight支持中文
+        $pdf->SetFont('stsongstdlight', '', 14);
+
+
+
+
+
         //建筑系统信息 以及项目对应的子系统信息
         $data['engin_system']=DB::table('enginnering_architectural')
             ->where('engin_id',$id)
@@ -739,6 +776,18 @@ class BudgetController extends WebController
             $data['room_name']      =json_decode($data['param']->room_name,true);
             $data['room_area']      =json_decode($data['param']->room_area,true);
         }
+        $utf8html = view('budget.budgetDownload',$data);
+
+        //第一页
+        $pdf->AddPage();
+        $pdf->writeHTML($utf8html);
+
+        //输出PDF
+        $pdf->Output('t.pdf', 'I');//I输出、D下载
+
+
+
+        return null;
 
 
         $pdf = PDF::loadView('budget.budgetDownload', $data);

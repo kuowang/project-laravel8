@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '605736d3a4cfed4b1ceeb744d8635df5f50682f3',
+    'reference' => '3c5889f012e7b5b9eb62a6190294fc625bb816d8',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -530,7 +530,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '605736d3a4cfed4b1ceeb744d8635df5f50682f3',
+      'reference' => '3c5889f012e7b5b9eb62a6190294fc625bb816d8',
     ),
     'laravel/sail' => 
     array (
@@ -1382,6 +1382,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '13e7e882eaa55863faa7c4ad7c60f12f1a8b5089',
+    ),
+    'tecnickcom/tcpdf' => 
+    array (
+      'pretty_version' => '6.3.5',
+      'version' => '6.3.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '456b794f1fae9aee5c151a1ee515aae2aaa619a3',
     ),
     'theseer/tokenizer' => 
     array (
