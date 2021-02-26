@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '3c5889f012e7b5b9eb62a6190294fc625bb816d8',
+    'reference' => '2a2dd925ba2ad8de04cf24b0d000deb66d11f3c9',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -517,7 +517,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '3c5889f012e7b5b9eb62a6190294fc625bb816d8',
+      'reference' => '2a2dd925ba2ad8de04cf24b0d000deb66d11f3c9',
     ),
     'laravel/sail' => 
     array (
@@ -1377,7 +1377,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '456b794f1fae9aee5c151a1ee515aae2aaa619a3',
+      'reference' => '19a535eaa7fb1c1cac499109deeb1a7a201b4549',
     ),
     'theseer/tokenizer' => 
     array (

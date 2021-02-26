@@ -8330,16 +8330,23 @@
             "name": "tecnickcom/tcpdf",
             "version": "6.3.5",
             "version_normalized": "6.3.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tecnickcom/TCPDF.git",
+                "reference": "19a535eaa7fb1c1cac499109deeb1a7a201b4549"
+            },
             "dist": {
-                "type": "path",
-                "url": "../pdf",
-                "reference": "456b794f1fae9aee5c151a1ee515aae2aaa619a3"
+                "type": "zip",
+                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/19a535eaa7fb1c1cac499109deeb1a7a201b4549",
+                "reference": "19a535eaa7fb1c1cac499109deeb1a7a201b4549",
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
+            "time": "2020-02-14T14:20:12+00:00",
             "type": "library",
-            "installation-source": "dist",
+            "installation-source": "source",
             "autoload": {
                 "classmap": [
                     "config",
@@ -8360,6 +8367,7 @@
                     "include/barcodes/qrcode.php"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "LGPL-3.0-only"
             ],
@@ -8373,16 +8381,17 @@
             "description": "TCPDF is a PHP class for generating PDF documents and barcodes.",
             "homepage": "http://www.tcpdf.org/",
             "keywords": [
-                "PDF",
                 "PDFD32000-2008",
+                "TCPDF",
                 "barcodes",
                 "datamatrix",
+                "pdf",
                 "pdf417",
-                "qrcode",
-                "tcpdf"
+                "qrcode"
             ],
-            "transport-options": {
-                "relative": true
+            "support": {
+                "issues": "https://github.com/tecnickcom/TCPDF/issues",
+                "source": "https://github.com/tecnickcom/TCPDF/tree/6.3.5"
             },
             "install-path": "../tecnickcom/tcpdf"
         },
