@@ -1,11 +1,10 @@
 <?php
-
 namespace App\Http\Controllers\Budget;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\DB;
-use PDF;
+
 
 class BudgetController extends WebController
 {
@@ -14,7 +13,7 @@ class BudgetController extends WebController
      *
      * @return void
      */
-    public function __construct(Request $request)
+    public function __construct()
     {
         //该方法验证说明必须登录用户才能操作
         $this->middleware('auth');
@@ -65,7 +64,7 @@ class BudgetController extends WebController
     public function budgetCompleted(Request $request,$id=0)
     {
         $this->user();
-        $data=$this->budget($request,$id, 2, '.', '');
+        $data=$this->budget($request,$id, 2);
         $data['subnavid']   =2001;
         if( !(in_array(200103,$this->user()->pageauth)) && !in_array(200107,$this->user()->manageauth)){
             return redirect('/budget/budgetStart?status=2&notice='.'您没有操作该功能权限');
@@ -98,7 +97,7 @@ class BudgetController extends WebController
     }
 
     //查询项目信息
-    protected function getBudgetList($id=0,$status,$project_name='',$address='',$budget_username='',$page=1,$rows=20)
+    protected function getBudgetList($id,$status,$project_name='',$address='',$budget_username='',$page=1,$rows=20)
     {
         //DB::connection()->enableQueryLog();
         $db=DB::table('engineering')
@@ -113,7 +112,7 @@ class BudgetController extends WebController
             $db->where('project_name','like','%'.$project_name.'%');
         }
         if(!empty($address)){
-            $db->Where(function ($query)use($address) {
+            $db->Where( function ($query)use($address) {
                 $query->where('province', 'like','%'.$address.'%')
                     ->orwhere('city', 'like','%'.$address.'%')
                     ->orwhere('county', 'like','%'.$address.'%')
@@ -143,7 +142,7 @@ class BudgetController extends WebController
     }
 
     //工程预算信息列表
-    private function budget($request,$id=0,$status=0)
+    private function budget(Request $request,$id=0,$status=0)
     {
         $project_name       =$request->input('project_name','');
         $address            =$request->input('address','');
@@ -173,7 +172,7 @@ class BudgetController extends WebController
         return $data;
     }
     //编辑洽谈工程预算详情
-    public function editStartBudget(Request $request,$id)
+    public function editStartBudget($id)
     {
         $this->user();
         $data['navid']      =20;
@@ -185,8 +184,8 @@ class BudgetController extends WebController
         }
         //项目信息
         $project =DB::table('project')->where('id',$engineering->project_id)->first();
-        if( (in_array(20010101,$this->user()->pageauth) && $project->budget_uid == $this->user()->id ) || in_array(200102,$this->user()->manageauth)){
-            if($engineering->status !=0){
+        if( (in_array(20010101,$this->user()->pageauth) && $project->budget_uid === $this->user()->id ) || in_array(200102,$this->user()->manageauth)){
+            if($engineering->status !==0){
                 return redirect('/budget/budgetStart/'.$engineering->project_id.'?status=2&notice='.'您没有权限编辑该工程信息');
             }
         }else{
@@ -195,7 +194,7 @@ class BudgetController extends WebController
         }
         //预算信息
         $budget =DB::table('budget')->where('engin_id',$id)->first();
-        if(isset($budget->budget_status) && $budget->budget_status==1 ){
+        if(isset($budget->budget_status) && $budget->budget_status ===1 ){
             return redirect('/budget/budgetStart/'.$engineering->project_id.'?status=2&notice='.'预算单已审核通过，不能编辑');
         }
          return $this->editBudget($id,$data,$project,$engineering,$budget);
@@ -236,7 +235,7 @@ class BudgetController extends WebController
 
     /**
      * @param Request $request
-     * @param $id 工程id
+     * @param $id int 工程id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     protected function editBudget($id,$data,$project,$engineering,$budget)
@@ -332,7 +331,7 @@ class BudgetController extends WebController
             return redirect('/budget/budgetConduct/'.$engin->project_id.'?status=1&notice='.'项目状态更改成功！');
         }elseif($status == 2){
             return redirect('/budget/budgetCompleted/'.$engin->project_id.'?status=1&notice='.'项目状态更改成功！');
-        }elseif($status == 4){
+        }elseif($status ==4){
             return redirect('/budget/budgetTermination/'.$engin->project_id.'?status=1&notice='.'项目状态更改成功！');
         }else{
             return redirect('/budget/budgetStart/'.$engin->project_id.'?status=1&notice='.'项目状态更改成功！');

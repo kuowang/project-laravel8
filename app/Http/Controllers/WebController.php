@@ -94,9 +94,9 @@ class WebController extends Controller
     }
 
     /**分页函数
-     * @param $page 当前第几页
-     * @param $count 总页数
-     * @param $url  地址
+     * @param $page int 当前第几页
+     * @param $count int 总页数
+     * @param $url  string 地址
      * @return $return html内容
      */
 
