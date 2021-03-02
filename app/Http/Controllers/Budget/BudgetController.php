@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Budget;
 
+use App\Facades\UserTool;
 use Illuminate\Http\Request;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\DB;
@@ -562,11 +563,13 @@ class BudgetController extends WebController
     //洽谈工程预算详情
     public function budgetStartDetail(Request $request,$id)
     {
-
-        $user =app('UserTool')->getUserInfo($this->user()->id);
+       /**
+        // 测试服务提供者和门面
+        $user = UserTool::getUserInfo($this->user()->id);
+        $user1 =  app('UserTool')->getUserInfo($this->user()->id);
         print_r($user);
         exit;
-
+        **/
         $this->user();
         $data['navid']      =20;
         $data['subnavid']   =2001;
