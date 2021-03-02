@@ -183,6 +183,7 @@ return [
         App\Providers\JetstreamServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
 
+        App\Providers\UserServiceProvider::class,
     ],
 
     /*

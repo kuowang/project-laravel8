@@ -562,6 +562,11 @@ class BudgetController extends WebController
     //洽谈工程预算详情
     public function budgetStartDetail(Request $request,$id)
     {
+
+        $user =app('UserTool')->getUserInfo($this->user()->id);
+        print_r($user);
+        exit;
+
         $this->user();
         $data['navid']      =20;
         $data['subnavid']   =2001;
