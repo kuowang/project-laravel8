@@ -1,9 +1,10 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <style>
     @font-face {
         font-family: 'msyh';
         font-style: normal;
         font-weight: normal;
-        src: url(http://127.0.0.1/fonts/msyh.ttf) format('truetype');
+        src: url({{ storage_path('fonts/msyh.ttf') }}) format('truetype');
     }
     body {  margin: 0;  padding: 0;  width: 100%;
         font-family: 'msyh';
@@ -11,6 +12,8 @@
     }
     table{
         width:100%;
+        font-family: 'msyh';
+
     }
     .pro-title{
         background: #e6e6e6;
@@ -20,6 +23,7 @@
 </style>
 
 
+<body>
 <div style="text-align: center;font-size: 20px;"> {{$project->project_name}}（工程报价清单）</div>
 
 <table class="layui-table layui-form"  border="1" cellspacing="0" cellpadding="0">
@@ -128,7 +132,9 @@
             <tr class="pro-title gradeX warning odd">
                 <td colspan="10">{{$v->system_name}}({{$v->engin_name}})</td>
             </tr>
-            @php( $system_code = $v->system_code)
+            @php
+                $system_code = $v->system_code
+            @endphp
         @endif
         <tr class="sub_arch_{{$v->sub_arch_id}} gradeA success odd">
             <td  colspan="10"> &nbsp;&nbsp;&nbsp;{{$v->sub_system_name}} <span style="color:#1d52f6">工况：{{$v->work_code}}</span> 编码：{{$v->sub_system_code}}</td>
@@ -223,3 +229,4 @@
     </tr>
     </tbody>
 </table>
+</body>

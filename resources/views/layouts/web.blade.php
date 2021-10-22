@@ -160,6 +160,10 @@
         &copy; {{ config('app.name') }}-{{config('app.engin_name')}}
     </p>
 </footer>
-
+<script type="text/javascript">
+    $().ready(function () {
+        $("input:text").attr('autocomplete','off');
+    })
+</script>
 </body>
 </html>

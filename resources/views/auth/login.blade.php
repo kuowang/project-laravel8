@@ -51,6 +51,7 @@
 <script type="text/javascript">
     <?php
     $message =session('message');
+    session()->flush();
     ?>
     @isset($message)
     @if($message != '')
